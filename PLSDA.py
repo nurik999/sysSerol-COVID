@@ -33,3 +33,35 @@ plt.title("Loadings Plot - PCA")
 
 for i, txt in enumerate(variables):
     plt.annotate(txt, (loadings[i,0], loadings[i,1]))
+
+
+
+from sklearn.cross_decomposition import PLSRegression
+from sklearn.preprocessing import scale
+Y = Outcome
+
+plsr = PLSRegression(n_components=2)
+plsr.fit_transform(X, Y)
+y = plsr.predict(X)
+xloading, yloading = plsr.x_loadings_, plsr.y_loadings_
+xscore, yscore = plsr.x_scores_, plsr.y_scores_
+
+for i in range(0, len(Y)):
+    if Y[i] == 1:
+        plt.scatter(xscore[i, 0], xscore[i, 1], c='r')
+        plt.legend('M')
+    elif Y[i] == 0:
+        plt.scatter(xscore[i, 0], xscore[i, 1], c='b') 
+plt.xlabel('PC1')
+plt.ylabel('PC2')
+plt.title('Scores Plot - PLS-DA')
+plt.figure()
+
+plt.scatter(xloading[:,0],xloading[:,1])
+plt.scatter(yloading[:,0],yloading[:,1], c='r')
+plt.annotate('Classification', (yloading[:, 0], yloading[:, 1]))
+plt.xlabel("PC1")
+plt.ylabel('PC2')
+plt.title('Loadings Plot - PLS-DA')
+for i, txt in enumerate(variables):
+    plt.annotate(txt, (xloading[i,0], xloading[i,1]))
