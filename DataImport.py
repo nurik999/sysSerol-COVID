@@ -25,4 +25,5 @@ def tensorView():
 
 
 Tensor = tensorView()
+print(np.shape(Tensor))
 print(Tensor)
