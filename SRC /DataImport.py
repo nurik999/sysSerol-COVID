@@ -3,8 +3,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
+
 def tensorView():
-    Cov = pd.read_csv('CovData.csv')
+    Cov = pd.read_csv("../Data File/CovData.csv")
     r, c = Cov.shape
     print(r,c)
 
