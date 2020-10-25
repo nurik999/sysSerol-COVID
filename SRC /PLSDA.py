@@ -7,7 +7,9 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import scale
 from scipy import stats
 
-Cov = pd.read_csv("../Data File/CovData.csv")
+CovDataUrl = 'https://raw.githubusercontent.com/meyer-lab/sysSerol-COVID/main/Data%20File/CovData.csv'
+
+Cov = pd.read_csv(CovDataUrl)
 Outcome = Cov['Outcome']
 r, c = Cov.shape
 X = Cov.iloc[:,13:c]

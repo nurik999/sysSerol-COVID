@@ -3,9 +3,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
+CovDataUrl = 'https://raw.githubusercontent.com/meyer-lab/sysSerol-COVID/main/Data%20File/CovData.csv'
+
 
 def tensorView():
-    Cov = pd.read_csv("../Data File/CovData.csv")
+    Cov = pd.read_csv(CovDataUrl)
     r, c = Cov.shape
     print(r,c)
 
