@@ -12,7 +12,7 @@ Cov = pd.read_csv(CovDataUrl)
 
 def tensorView():
     """Tensor Formation (Patients x Receptors x Antigens)"""
-    r, c = Cov.shape
+    _, c = Cov.shape
     SMat = Cov.iloc[:,13:c-1:3]
     RMat = Cov.iloc[:,14:c:3]
     NMat = Cov.iloc[:,15:c:3]

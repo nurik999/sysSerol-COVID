@@ -1,8 +1,8 @@
 import numpy as np
 import seaborn as sns
-from dataImport import tensorView
-from tfac import cp_decomp
-from figureCommon import subplotLabel, getSetup
+from ..dataImport import tensorView
+from ..tfac import cp_decomp
+from .figureCommon import subplotLabel, getSetup
 
 S, R, N, tensor = tensorView()
 component = 5
@@ -22,7 +22,7 @@ def R2X_plot(tensor, ax):
     comps = range(1, len(cp_r2x))
     for i in comps:
         cp_r2x[i] = cp_decomp(tensor, i)[1]
-    sns.scatterplot(np.arange(len(cp_r2x)), cp_r2x, ax = ax)
+    sns.scatterplot(np.arange(component), cp_r2x, ax=ax)
     ax.set_xlabel("Components")
     ax.set_ylabel("R2X")
     ax.set_title("CP Decomposition")
